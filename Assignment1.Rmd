@@ -26,10 +26,32 @@ data <- read.csv("../Data/activity.csv")
 The data consists of two months of data from <b> a unique anonymous individual </b> collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day. The data file is named  acitvity.csv and can be downloaded from the coursera Webpage. We have a sample of  <b>`r nrow(data)` </b> observations and <b>`r ncol(data)`</b> variables.
 
 # Data analysis 
-The mean total number of steps taken per day is just 
+The mean total number of steps taken per day is just something we could represent over time but we need to do some calculation first
+
+```{r }
+data$date <- as.factor(data$date)
+data$steps <- as.numeric(data$steps)
+
+
+data$total.steps = tapply(data$steps,data$date,sum)  #apply the mean function to count steps  each date
+data$unique.date = tapply(data$date,data$date,unique)
+attach(data)
+
+```
+
 
 ```{r fig.width=7, fig.height=6}
-pairs(data)
+
+hist(total.steps, freq=FALSE, nclass=13)
+```
+
+On this sample, we observe that the mean total number of steps taken per day is 
+<b>`r mean(data$total.steps, na.rm= TRUE)` </b>   ( with the median =  `r median(total.steps,  na.rm= TRUE)`  ).
+
+
+```{r }
+plot(unique.date,total.steps,type= "l",ylab="Total Steps/day")  
+
 ```
 
 
