@@ -1,0 +1,35 @@
+Reproductible Research Course  at coursera : First Assigment
+========================================================
+
+# Data summary
+
+```{r}
+# first we clear everything
+rm(list=ls())
+#Home dir
+setwd("C:/Chris/Gremaq2014/Coursera/RR/progs") 
+# My Packages 
+library(xtable)
+library(KernSmooth)
+library(ggplot2)
+
+# Stet global option 
+opts_chunk$set(ECHO = TRUE)
+
+``` 
+First we read the data
+```{r}
+data <- read.csv("../Data/activity.csv")
+
+```
+
+The data consists of two months of data from <b> a unique anonymous individual </b> collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day. The data file is named  acitvity.csv and can be downloaded from the coursera Webpage. We have a sample of  <b>`r nrow(data)` </b> observations and <b>`r ncol(data)`</b> variables.
+
+# Data analysis 
+The mean total number of steps taken per day is just 
+
+```{r fig.width=7, fig.height=6}
+pairs(data)
+```
+
+
