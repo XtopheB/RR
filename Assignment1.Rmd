@@ -55,3 +55,7 @@ plot(unique.date,total.steps,type= "l",ylab="Total Steps/day")
 ```
 
 
+# Thee average daily activity pattern
+
+<font color ="red"> I stop there because the rest is pure coding in R and is quite time consumming, sorry ! </font>
+
